@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DotNetAppSqlDb.Models.Todo>
+
+@{ ViewBag.Title = "Index"; }
+
+<h2><b>Cadastros</b></h2>
+
+<p>
+    @Html.ActionLink("Acessar Cadastros", "Create")
+</p>
+
+<br><br>
+<hr />
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome_espectador)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Desc_live)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Nome_instrutor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Pago)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome_espectador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Desc_live)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome_instrutor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pago)
+        </td>
+
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Deletar", "Delete", new { id = item.ID })
+        </td>
+    </tr>}
+
+    </table>
